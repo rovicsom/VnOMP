@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Malicious Programs Security Report</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .analogy {
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        .analogy:before {
+            content: "💡";
+            position: absolute;
+            left: 0;
+        }
+        .malware-icon {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            margin-right: 1rem;
+        }
+        .dark-mode {
+            background-color: #1a202c;
+            color: #e2e8f0;
+        }
+        .dark-mode .bg-gray-100 {
+            background-color: #2d3748;
+        }
+        .dark-mode .border-gray-200 {
+            border-color: #4a5568;
+        }
+        .dark-mode .text-gray-800 {
+            color: #e2e8f0;
+        }
+        .dark-mode .bg-white {
+            background-color: #2d3748;
+        }
+        .dark-mode .bg-blue-500 {
+            background-color: #4299e1;
+        }
+        .dark-mode .bg-red-500 {
+            background-color: #f56565;
+        }
+        .dark-mode .bg-green-500 {
+            background-color: #48bb78;
+        }
+        .dark-mode .bg-purple-500 {
+            background-color: #9f7aea;
+        }
+        .dark-mode .bg-yellow-500 {
+            background-color: #ecc94b;
+        }
+        .dark-mode .bg-indigo-500 {
+            background-color: #667eea;
+        }
+        .dark-mode .bg-gray-800 {
+            background-color: #1a202c;
+        }
+        .dark-mode .text-blue-500 {
+            color: #63b3ed;
+        }
+        .dark-mode .text-red-500 {
+            color: #feb2b2;
+        }
+        .dark-mode .text-green-500 {
+            color: #9ae6b4;
+        }
+        .dark-mode .text-purple-500 {
+            color: #d6bcfa;
+        }
+        .dark-mode .text-yellow-500 {
+            color: #faf089;
+        }
+        .dark-mode .text-indigo-500 {
+            color: #a3bffa;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <div class="container mx-auto px-4 py-8 max-w-6xl">
+        <!-- Header with dark mode toggle -->
+        <header class="flex justify-between items-center mb-8">
+            <div>
+                <h1 class="text-3xl md:text-4xl font-bold text-blue-600">
+                    <i class="fas fa-shield-virus mr-2"></i> Malicious Programs Security Report
+                </h1>
+                <p class="text-gray-600 mt-2">QA & Security Course Overview</p>
+            </div>
+            <button id="darkModeToggle" class="p-2 rounded-full bg-gray-200 hover:bg-gray-300">
+                <i class="fas fa-moon text-gray-700"></i>
+            </button>
+        </header>
+
+        <!-- Introduction -->
+        <section class="mb-10 bg-white p-6 rounded-lg shadow-md border-l-4 border-blue-500">
+            <h2 class="text-2xl font-semibold mb-4 text-blue-600">
+                <i class="fas fa-info-circle mr-2"></i> Introduction
+            </h2>
+            <p class="mb-4">Malicious programs, or malware, are designed to infiltrate, damage, or gain unauthorized access to computer systems. This report covers the major types of malware, their characteristics, and how they spread.</p>
+            <div class="bg-blue-50 p-4 rounded border border-blue-200">
+                <p class="font-semibold text-blue-700"><i class="fas fa-exclamation-triangle mr-2"></i> Key Takeaway:</p>
+                <p>Understanding malware types helps in implementing appropriate security measures and response strategies.</p>
+            </div>
+        </section>
+
+        <!-- Types of Malicious Programs -->
+        <section class="mb-10">
+            <h2 class="text-2xl font-semibold mb-6 text-blue-600">
+                <i class="fas fa-bug mr-2"></i> Types of Malicious Programs
+            </h2>
+            
+            <!-- Virus Card -->
+            <div class="bg-white p-6 rounded-lg shadow-md mb-6 border-l-4 border-red-500 hover:shadow-lg transition-shadow">
+                <div class="flex items-center mb-4">
+                    <div class="malware-icon bg-red-500 text-white">
+                        <i class="fas fa-virus"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-red-600">Viruses</h3>
+                </div>
+                <ul class="list-disc pl-6 space-y-2">
+                    <li>Self-replicating code that attaches to legitimate programs</li>
+                    <li>Spreads when infected files are shared or executed</li>
+                    <li>Can corrupt, delete, or steal data</li>
+                    <li class="analogy text-gray-600 italic">Think of it like: A parasite that needs a host - attaches to your Word document and spreads when you email it to colleagues</li>
+                </ul>
+            </div>
+            
+            <!-- Worm Card -->
+            <div class="bg-white p-6 rounded-lg shadow-md mb-6 border-l-4 border-green-500 hover:shadow-lg transition-shadow">
+                <div class="flex items-center mb-4">
+                    <div class="malware-icon bg-green-500 text-white">
+                        <i class="fas fa-spider"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-green-600">Worms</h3>
+                </div>
+                <ul class="list-disc pl-6 space-y-2">
+                    <li>Self-propagating malware that spreads across networks</li>
+                    <li>Does not require host files to replicate</li>
+                    <li>Consumes bandwidth and system resources</li>
+                    <li class="analogy text-gray-600 italic">Think of it like: A self-driving car that copies itself - moves independently through your network without needing anyone to carry it</li>
+                </ul>
+            </div>
+            
+            <!-- Trojan Card -->
+            <div class="bg-white p-6 rounded-lg shadow-md mb-6 border-l-4 border-yellow-500 hover:shadow-lg transition-shadow">
+                <div class="flex items-center mb-4">
+                    <div class="malware-icon bg-yellow-500 text-white">
+                        <i class="fas fa-horse-head"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-yellow-600">Trojans</h3>
+                </div>
+                <ul class="list-disc pl-6 space-y-2">
+                    <li>Disguised as legitimate software</li>
+                    <li>Creates backdoors for unauthorized access</li>
+                    <li>Often used to steal credentials or install other malware</li>
+                    <li class="analogy text-gray-600 italic">Think of it like: A fake delivery package - looks like legitimate software (free game, PDF reader) but contains hidden malware</li>
+                </ul>
+            </div>
+            
+            <!-- Ransomware Card -->
+            <div class="bg-white p-6 rounded-lg shadow-md mb-6 border-l-4 border-purple-500 hover:shadow-lg transition-shadow">
+                <div class="flex items-center mb-4">
+                    <div class="malware-icon bg-purple-500 text-white">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-purple-600">Ransomware</h3>
+                </div>
+                <ul class="list-disc pl-6 space-y-2">
+                    <li>Encrypts user files and demands payment</li>
+                    <li>Major threat to businesses and individuals</li>
+                    <li>Can spread through email attachments or network vulnerabilities</li>
+                    <li class="analogy text-gray-600 italic">Think of it like: A digital kidnapper - locks up your files and demands ransom money to give you the key</li>
+                </ul>
+            </div>
+            
+            <!-- Spyware Card -->
+            <div class="bg-white p-6 rounded-lg shadow-md mb-6 border-l-4 border-indigo-500 hover:shadow-lg transition-shadow">
+                <div class="flex items-center mb-4">
+                    <div class="malware-icon bg-indigo-500 text-white">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-indigo-600">Spyware</h3>
+                </div>
+                <ul class="list-disc pl-6 space-y-2">
+                    <li>Secretly monitors user activity</li>
+                    <li>Collects personal information, keystrokes, browsing habits</li>
+                    <li>Often bundled with legitimate software</li>
+                    <li class="analogy text-gray-600 italic">Think of it like: A hidden camera in your office - secretly watches everything you do and reports back to criminals</li>
+                </ul>
+            </div>
+            
+            <!-- Rootkit Card -->
+            <div class="bg-white p-6 rounded-lg shadow-md mb-6 border-l-4 border-gray-500 hover:shadow-lg transition-shadow">
+                <div class="flex items-center mb-4">
+                    <div class="malware-icon bg-gray-500 text-white">
+                        <i class="fas fa-user-secret"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-600">Rootkits</h3>
+                </div>
+                <ul class="list-disc pl-6 space-y-2">
+                    <li>Hide deep within operating system</li>
+                    <li>Difficult to detect and remove</li>
+                    <li>Provide persistent unauthorized access</li>
+                    <li class="analogy text-gray-600 italic">Think of it like: A master key that also makes itself invisible - gives hackers admin access while hiding from security scans</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Common Attack Vectors -->
+        <section class="mb-10">
+            <h2 class="text-2xl font-semibold mb-6 text-blue-600">
+                <i class="fas fa-bolt mr-2"></i> Common Attack Vectors
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <!-- Email attachments -->
+                <div class="bg-white p-4 rounded-lg shadow border border-gray-200 hover:shadow-md transition-shadow">
+                    <div class="flex items-center mb-2">
+                        <div class="w-8 h-8 bg-red-100 rounded-full flex items-center justify-center mr-3">
+                            <i class="fas fa-envelope text-red-500"></i>
+                        </div>
+                        <h3 class="font-semibold">Email attachments</h3>
+                    </div>
+                    <p class="text-gray-600 mb-2">Malicious files disguised as documents</p>
+                    <div class="bg-gray-50 p-2 rounded text-sm italic">
+                        <i class="fas fa-example-circle text-gray-400 mr-1"></i> Example: "Invoice.pdf.exe" that looks like a PDF but is actually malware
+                    </div>
+                </div>
+                
+                <!-- Downloads -->
+                <div class="bg-white p-4 rounded-lg shadow border border-gray-200 hover:shadow-md transition-shadow">
+                    <div class="flex items-center mb-2">
+                        <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center mr-3">
+                            <i class="fas fa-download text-blue-500"></i>
+                        </div>
+                        <h3 class="font-semibold">Downloads</h3>
+                    </div>
+                    <p class="text-gray-600 mb-2">Infected software from untrusted sources</p>
+                    <div class="bg-gray-50 p-2 rounded text-sm italic">
+                        <i class="fas fa-example-circle text-gray-400 mr-1"></i> Example: Free movie download site that bundles spyware with the video file
+                    </div>
+                </div>
+                
+                <!-- USB devices -->
+                <div class="bg-white p-4 rounded-lg shadow border border-gray-200 hover:shadow-md transition-shadow">
+                    <div class="flex items-center mb-2">
+                        <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center mr-3">
+                            <i class="fas fa-usb text-green-500"></i>
+                        </div>
+                        <h3 class="font-semibold">USB devices</h3>
+                    </div>
+                    <p class="text-gray-600 mb-2">Removable media carrying malware</p>
+                    <div class="bg-gray-50 p-2 rounded text-sm italic">
+                        <i class="fas fa-example-circle text-gray-400 mr-1"></i> Example: USB stick found in parking lot contains malware that runs when plugged in
+                    </div>
+                </div>
+                
+                <!-- Network exploits -->
+                <div class="bg-white p-4 rounded-lg shadow border border-gray-200 hover:shadow-md transition-shadow">
+                    <div class="flex items-center mb-2">
+                        <div class="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center mr-3">
+                            <i class="fas fa-network-wired text-purple-500"></i>
+                        </div>
+                        <h3 class="font-semibold">Network exploits</h3>
+                    </div>
+                    <p class="text-gray-600 mb-2">Taking advantage of system vulnerabilities</p>
+                    <div class="bg-gray-50 p-2 rounded text-sm italic">
+                        <i class="fas fa-example-circle text-gray-400 mr-1"></i> Example: Unpatched Windows systems infected by WannaCry ransomware in 2017
+                    </div>
+                </div>
+                
+                <!-- Social engineering -->
+                <div class="bg-white p-4 rounded-lg shadow border border-gray-200 hover:shadow-md transition-shadow md:col-span-2">
+                    <div class="flex items-center mb-2">
+                        <div class="w-8 h-8 bg-yellow-100 rounded-full flex items-center justify-center mr-3">
+                            <i class="fas fa-user-shield text-yellow-500"></i>
+                        </div>
+                        <h3 class="font-semibold">Social engineering</h3>
+                    </div>
+                    <p class="text-gray-600 mb-2">Tricking users into installing malware</p>
+                    <div class="bg-gray-50 p-2 rounded text-sm italic">
+                        <i class="fas fa-example-circle text-gray-400 mr-1"></i> Example: Fake tech support call claiming "your computer is infected, download our scanner"
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Comparison Table -->
+        <section class="mb-10">
+            <h2 class="text-2xl font-semibold mb-6 text-blue-600">
+                <i class="fas fa-table mr-2"></i> Comparison of Malicious Programs
+            </h2>
+            
+            <div class="overflow-x-auto">
+                <table class="min-w-full bg-white rounded-lg overflow-hidden shadow">
+                    <thead class="bg-blue-500 text-white">
+                        <tr>
+                            <th class="py-3 px-4 text-left">Type</th>
+                            <th class="py-3 px-4 text-left">Host Required</th>
+                            <th class="py-3 px-4 text-left">Spreads How</th>
+                            <th class="py-3 px-4 text-left">Primary Goal</th>
+                            <th class="py-3 px-4 text-left">Detection Difficulty</th>
+                            <th class="py-3 px-4 text-left">Impact Level</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-200">
+                        <!-- Virus -->
+                        <tr class="hover:bg-blue-50 transition-colors">
+                            <td class="py-3 px-4 font-semibold text-red-500"><i class="fas fa-virus mr-2"></i> Virus</td>
+                            <td class="py-3 px-4">Yes (needs files)</td>
+                            <td class="py-3 px-4">File sharing/execution</td>
+                            <td class="py-3 px-4">Damage/corruption</td>
+                            <td class="py-3 px-4">
+                                <span class="px-2 py-1 bg-yellow-100 text-yellow-800 rounded-full text-xs">Medium</span>
+                            </td>
+                            <td class="py-3 px-4">
+                                <span class="px-2 py-1 bg-orange-100 text-orange-800 rounded-full text-xs">Medium-High</span>
+                            </td>
+                        </tr>
+                        
+                        <!-- Worm -->
+                        <tr class="hover:bg-blue-50 transition-colors">
+                            <td class="py-3 px-4 font-semibold text-green-500"><i class="fas fa-spider mr-2"></i> Worm</td>
+                            <td class="py-3 px-4">No (independent)</td>
+                            <td class="py-3 px-4">Network automatically</td>
+                            <td class="py-3 px-4">Network disruption</td>
+                            <td class="py-3 px-4">
+                                <span class="px-2 py-1 bg-blue-100 text-blue-800 rounded-full text-xs">Easy-Medium</span>
+                            </td>
+                            <td class="py-3 px-4">
+                                <span class="px-2 py-1 bg-red-100 text-red-800 rounded-full text-xs">High</span>
+                            </td>
+                        </tr>
+                        
+                        <!-- Trojan -->
+                        <tr class="hover:bg-blue-50 transition-colors">
+                            <td class="py-3 px-4 font-semibold text-yellow-500"><i class="fas fa-horse-head mr-2"></i> Trojan</td>
+                            <td class="py-3 px-4">No (standalone)</td>
+                            <td class="py-3 px-4">User installation</td>
+                            <td class="py-3 px-4">Backdoor access</td>
+                            <td class="py-3 px-4">
+                                <span class="px-2 py-1 bg-yellow-100 text-yellow-800 rounded-full text-xs">Medium</span>
+                            </td>
+                            <td class="py-3 px-4">
+                                <span class="px-2 py-1 bg-red-100 text-red-800 rounded-full text-xs">High</span>
+                            </td>
+                        </tr>
+                        
+                        <!-- Ransomware -->
+                        <tr class="hover:bg-blue-50 transition-colors">
+                            <td class="py-3 px-4 font-semibold text-purple-500"><i class="fas fa-lock mr-2"></i> Ransomware</td>
+                            <td class="py-3 px-4">No (standalone)</td>
+                            <td class="py-3 px-4">Email/network</td>
+                            <td class="py-3 px-4">Financial extortion</td>
+                            <td class="py-3 px-4">
+                                <span class="px-2 py-1 bg-yellow-100 text-yellow-800 rounded-full text-xs">Medium</span>
+                            </td>
+                            <td class="py-3 px-4">
+                                <span class="px-2 py-1 bg-red-100 text-red-800 rounded-full text-xs">Very High</span>
+                            </td>
+                        </tr>
+                        
+                        <!-- Spyware -->
+                        <tr class="hover:bg-blue-50 transition-colors">
+                            <td class="py-3 px-4 font-semibold text-indigo-500"><i class="fas fa-eye mr-2"></i> Spyware</td>
+                            <td class="py-3 px-4">No (standalone)</td>
+                            <td class="py-3 px-4">Bundled software</td>
+                            <td class="py-3 px-4">Data theft</td>
+                            <td class="py-3 px-4">
+                                <span class="px-2 py-1 bg-red-100 text-red-800 rounded-full text-xs">Hard</span>
+                            </td>
+                            <td class="py-3 px-4">
+                                <span class="px-2 py-1 bg-yellow-100 text-yellow-800 rounded-full text-xs">Medium</span>
+                            </td>
+                        </tr>
+                        
+                        <!-- Rootkit -->
+                        <tr class="hover:bg-blue-50 transition-colors">
+                            <td class="py-3 px-4 font-semibold text-gray-500"><i class="fas fa-user-secret mr-2"></i> Rootkit</td>
+                            <td class="py-3 px-4">No (system level)</td>
+                            <td class="py-3 px-4">Other malware</td>
+                            <td class="py-3 px-4">Persistent access</td>
+                            <td class="py-3 px-4">
+                                <span class="px-2 py-1 bg-red-100 text-red-800 rounded-full text-xs">Very Hard</span>
+                            </td>
+                            <td class="py-3 px-4">
+                                <span class="px-2 py-1 bg-red-100 text-red-800 rounded-full text-xs">Very High</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Key Differences Summary -->
+        <section>
+            <h2 class="text-2xl font-semibold mb-6 text-blue-600">
+                <i class="fas fa-key mr-2"></i> Key Differences Summary
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <!-- Speed of Spread -->
+                <div class="bg-white p-4 rounded-lg shadow border border-gray-200">
+                    <div class="flex items-center mb-3">
+                        <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mr-3">
+                            <i class="fas fa-tachometer-alt text-blue-500"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold">Speed of Spread</h3>
+                    </div>
+                    <ul class="space-y-2">
+                        <li class="flex items-start">
+                            <span class="bg-blue-500 text-white rounded-full w-5 h-5 flex items-center justify-center mr-2 mt-0.5 flex-shrink-0">
+                                <i class="fas fa-bolt text-xs"></i>
+                            </span>
+                            <span><strong>Fastest:</strong> Worms (automatic network spread)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="bg-gray-500 text-white rounded-full w-5 h-5 flex items-center justify-center mr-2 mt-0.5 flex-shrink-0">
+                                <i class="fas fa-turtle text-xs"></i>
+                            </span>
+                            <span><strong>Slowest:</strong> Viruses (requires human action)</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Stealth Level -->
+                <div class="bg-white p-4 rounded-lg shadow border border-gray-200">
+                    <div class="flex items-center mb-3">
+                        <div class="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center mr-3">
+                            <i class="fas fa-user-ninja text-purple-500"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold">Stealth Level</h3>
+                    </div>
+                    <ul class="space-y-2">
+                        <li class="flex items-start">
+                            <span class="bg-purple-500 text-white rounded-full w-5 h-5 flex items-center justify-center mr-2 mt-0.5 flex-shrink-0">
+                                <i class="fas fa-eye-slash text-xs"></i>
+                            </span>
+                            <span><strong>Most Hidden:</strong> Rootkits, Spyware</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="bg-red-500 text-white rounded-full w-5 h-5 flex items-center justify-center mr-2 mt-0.5 flex-shrink-0">
+                                <i class="fas fa-bullhorn text-xs"></i>
+                            </span>
+                            <span><strong>Most Obvious:</strong> Ransomware (announces itself)</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Damage Type -->
+                <div class="bg-white p-4 rounded-lg shadow border border-gray-200">
+                    <div class="flex items-center mb-3">
+                        <div class="w-10 h-10 bg-red-100 rounded-full flex items-center justify-center mr-3">
+                            <i class="fas fa-bomb text-red-500"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold">Damage Type</h3>
+                    </div>
+                    <ul class="space-y-2">
+                        <li class="flex items-start">
+                            <span class="bg-green-500 text-white rounded-full w-5 h-5 flex items-center justify-center mr-2 mt-0.5 flex-shrink-0">
+                                <i class="fas fa-money-bill-wave text-xs"></i>
+                            </span>
+                            <span><strong>Immediate Financial:</strong> Ransomware</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="bg-indigo-500 text-white rounded-full w-5 h-5 flex items-center justify-center mr-2 mt-0.5 flex-shrink-0">
+                                <i class="fas fa-user-secret text-xs"></i>
+                            </span>
+                            <span><strong>Long-term Privacy:</strong> Spyware</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="bg-orange-500 text-white rounded-full w-5 h-5 flex items-center justify-center mr-2 mt-0.5 flex-shrink-0">
+                                <i class="fas fa-skull-crossbones text-xs"></i>
+                            </span>
+                            <span><strong>System Destruction:</strong> Viruses, Worms</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- User Involvement -->
+                <div class="bg-white p-4 rounded-lg shadow border border-gray-200">
+                    <div class="flex items-center mb-3">
+                        <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center mr-3">
+                            <i class="fas fa-users text-green-500"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold">User Involvement</h3>
+                    </div>
+                    <ul class="space-y-2">
+                        <li class="flex items-start">
+                            <span class="bg-yellow-500 text-white rounded-full w-5 h-5 flex items-center justify-center mr-2 mt-0.5 flex-shrink-0">
+                                <i class="fas fa-hand-pointer text-xs"></i>
+                            </span>
+                            <span><strong>Requires User Action:</strong> Viruses, Trojans</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="bg-gray-500 text-white rounded-full w-5 h-5 flex items-center justify-center mr-2 mt-0.5 flex-shrink-0">
+                                <i class="fas fa-robot text-xs"></i>
+                            </span>
+                            <span><strong>No User Action Needed:</strong> Worms, Rootkits</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="mt-12 pt-6 border-t border-gray-200 text-center text-gray-500 text-sm">
+            <p>© 2023 Security Education Report. All rights reserved.</p>
+            <p class="mt-2">For educational purposes only.</p>
+        </footer>
+    </div>
+
+    <!-- Dark mode toggle script -->
+    <script>
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const body = document.body;
+        
+        // Check for saved user preference
+        if (localStorage.getItem('darkMode') === 'enabled') {
+            body.classList.add('dark-mode');
+            darkModeToggle.innerHTML = '<i class="fas fa-sun text-yellow-400"></i>';
+        }
+        
+        darkModeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            
+            if (body.classList.contains('dark-mode')) {
+                localStorage.setItem('darkMode', 'enabled');
+                darkModeToggle.innerHTML = '<i class="fas fa-sun text-yellow-400"></i>';
+            } else {
+                localStorage.setItem('darkMode', 'disabled');
+                darkModeToggle.innerHTML = '<i class="fas fa-moon text-gray-700"></i>';
+            }
+        });
+    </script>
+</body>
+</html>
