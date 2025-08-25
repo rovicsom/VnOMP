@@ -3,543 +3,661 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Malicious Programs Security Report</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>5G and Future Network Technologies: Executive Report 2025</title>
     <style>
-        .analogy {
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            border-radius: 0 0 20px 20px;
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
             position: relative;
-            padding-left: 1.5rem;
+            overflow: hidden;
         }
-        .analogy:before {
-            content: "💡";
+
+        .header::before {
+            content: '';
             position: absolute;
-            left: 0;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: float 20s infinite linear;
         }
-        .malware-icon {
+
+        @keyframes float {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        .nav {
+            background: #2c3e50;
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav a:hover {
+            background: #3498db;
+            transform: translateY(-2px);
+        }
+
+        .content {
+            padding: 2rem;
+        }
+
+        .section {
+            margin-bottom: 3rem;
+            scroll-margin-top: 80px;
+        }
+
+        .section h2 {
+            color: #2c3e50;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 0.5rem;
+            position: relative;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(90deg, #e74c3c, #f39c12);
+            border-radius: 2px;
+        }
+
+        .section h3 {
+            color: #34495e;
+            font-size: 1.4rem;
+            margin: 1.5rem 0 1rem 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+            transform: translateY(0);
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(102, 126, 234, 0.4);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .feature-card {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 4px solid #3498db;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            background: #e3f2fd;
+            transform: translateX(5px);
+        }
+
+        .feature-card h4 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .applications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .application-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .application-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .application-header {
+            background: linear-gradient(45deg, #FF6B6B, #4ECDC4);
+            color: white;
+            padding: 1.5rem;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .application-content {
+            padding: 1.5rem;
+        }
+
+        .challenge-item {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .challenge-item h4 {
+            color: #856404;
+            margin-bottom: 0.5rem;
+        }
+
+        .future-vision {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 3rem;
+            border-radius: 20px;
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .future-vision h3 {
+            color: white;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .timeline {
+            display: flex;
+            justify-content: space-between;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .timeline-item {
+            background: rgba(255,255,255,0.1);
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .timeline-year {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .conclusion {
+            background: #2c3e50;
+            color: white;
+            padding: 3rem 2rem;
+            border-radius: 20px;
+            margin-top: 3rem;
+        }
+
+        .conclusion h2 {
+            color: white;
+            border-bottom-color: #3498db;
+        }
+
+        .key-points {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .key-point {
+            background: rgba(255,255,255,0.1);
+            padding: 1.5rem;
+            border-radius: 10px;
+        }
+
+        .key-point h4 {
+            color: #3498db;
+            margin-bottom: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8rem;
+            }
+
+            .nav ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 0.5rem;
+            }
+
+            .content {
+                padding: 1rem;
+            }
+
+            .stats-grid,
+            .features-grid,
+            .applications-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline {
+                flex-direction: column;
+            }
+        }
+
+        .scroll-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: #3498db;
+            color: white;
             width: 50px;
             height: 50px;
-            display: flex;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            font-size: 1.2rem;
+            display: none;
             align-items: center;
             justify-content: center;
-            border-radius: 50%;
-            margin-right: 1rem;
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.4);
+            transition: all 0.3s ease;
         }
-        .dark-mode {
-            background-color: #1a202c;
-            color: #e2e8f0;
+
+        .scroll-to-top:hover {
+            background: #2980b9;
+            transform: translateY(-3px);
         }
-        .dark-mode .bg-gray-100 {
-            background-color: #2d3748;
-        }
-        .dark-mode .border-gray-200 {
-            border-color: #4a5568;
-        }
-        .dark-mode .text-gray-800 {
-            color: #e2e8f0;
-        }
-        .dark-mode .bg-white {
-            background-color: #2d3748;
-        }
-        .dark-mode .bg-blue-500 {
-            background-color: #4299e1;
-        }
-        .dark-mode .bg-red-500 {
-            background-color: #f56565;
-        }
-        .dark-mode .bg-green-500 {
-            background-color: #48bb78;
-        }
-        .dark-mode .bg-purple-500 {
-            background-color: #9f7aea;
-        }
-        .dark-mode .bg-yellow-500 {
-            background-color: #ecc94b;
-        }
-        .dark-mode .bg-indigo-500 {
-            background-color: #667eea;
-        }
-        .dark-mode .bg-gray-800 {
-            background-color: #1a202c;
-        }
-        .dark-mode .text-blue-500 {
-            color: #63b3ed;
-        }
-        .dark-mode .text-red-500 {
-            color: #feb2b2;
-        }
-        .dark-mode .text-green-500 {
-            color: #9ae6b4;
-        }
-        .dark-mode .text-purple-500 {
-            color: #d6bcfa;
-        }
-        .dark-mode .text-yellow-500 {
-            color: #faf089;
-        }
-        .dark-mode .text-indigo-500 {
-            color: #a3bffa;
-        }
-        body {
-            font-size: 30px; /* Increased from 20px */
+
+        .scroll-to-top.visible {
+            display: flex;
         }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800">
-    <div class="container mx-auto px-4 py-8 max-w-6xl">
-        <!-- Header with dark mode toggle -->
-        <header class="flex justify-between items-center mb-8">
-            <div>
-                <h1 class="text-6xl md:text-7xl font-extrabold text-blue-600"> <!-- Increased from 5xl/6xl -->
-                    <i class="fas fa-shield-virus mr-2"></i> Malicious Programs Security Report
-                </h1>
-                <p class="text-gray-600 mt-2 text-3xl">QA & Security Course Overview</p> <!-- Increased from text-xl -->
-            </div>
-            <button id="darkModeToggle" class="p-3 rounded-full bg-gray-200 hover:bg-gray-300 text-3xl"> <!-- Increased size -->
-                <i class="fas fa-moon text-gray-700"></i>
-            </button>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>5G and Future Network Technologies</h1>
+            <div class="subtitle">Executive Report 2025</div>
         </header>
 
-        <!-- Introduction -->
-        <section class="mb-10 bg-white p-8 rounded-lg shadow-md border-l-4 border-blue-500"> <!-- Increased padding -->
-            <h2 class="text-4xl font-bold mb-4 text-blue-600"> <!-- Increased from 3xl -->
-                <i class="fas fa-info-circle mr-2"></i> Introduction
-            </h2>
-            <p class="mb-4 text-3xl">Malicious programs, or malware, are designed to infiltrate, damage, or gain unauthorized access to computer systems. This report covers the major types of malware, their characteristics, and how they spread.</p> <!-- Increased text size -->
-            <div class="bg-blue-50 p-5 rounded border border-blue-200"> <!-- Increased padding -->
-                <p class="font-semibold text-blue-700 text-3xl"><i class="fas fa-exclamation-triangle mr-2"></i> Key Takeaway:</p> <!-- Increased text size -->
-                <p class="text-3xl">Understanding malware types helps in implementing appropriate security measures and response strategies.</p> <!-- Increased text size -->
-            </div>
-        </section>
+        <nav class="nav">
+            <ul>
+                <li><a href="#introduction">Introduction</a></li>
+                <li><a href="#features">Key Features</a></li>
+                <li><a href="#applications">Applications</a></li>
+                <li><a href="#challenges">Challenges</a></li>
+                <li><a href="#future">Future Networks</a></li>
+                <li><a href="#conclusion">Conclusion</a></li>
+            </ul>
+        </nav>
 
-        <!-- Types of Malicious Programs -->
-        <section class="mb-10">
-            <h2 class="text-4xl font-semibold mb-6 text-blue-600"> <!-- Increased from 3xl -->
-                <i class="fas fa-bug mr-2"></i> Types of Malicious Programs
-            </h2>
-            
-            <!-- Virus Card -->
-            <div class="bg-white p-7 rounded-lg shadow-md mb-6 border-l-4 border-red-500 hover:shadow-lg transition-shadow"> <!-- Increased padding -->
-                <div class="flex items-center mb-4">
-                    <div class="malware-icon bg-red-500 text-white">
-                        <i class="fas fa-virus text-2xl"></i> <!-- Increased icon size -->
-                    </div>
-                    <h3 class="text-3xl font-bold text-red-600">Viruses</h3> <!-- Increased from 2xl -->
-                </div>
-                <ul class="list-disc pl-6 space-y-2 text-3xl"> <!-- Increased from 2xl -->
-                    <li>Self-replicating code that attaches to legitimate programs</li>
-                    <li>Spreads when infected files are shared or executed</li>
-                    <li>Can corrupt, delete, or steal data</li>
-                    <li class="analogy text-gray-600 italic text-2xl">Think of it like: A parasite that needs a host - attaches to your Word document and spreads when you email it to colleagues</li>
-                </ul>
-            </div>
-            
-            <!-- Worm Card -->
-            <div class="bg-white p-7 rounded-lg shadow-md mb-6 border-l-4 border-green-500 hover:shadow-lg transition-shadow">
-                <div class="flex items-center mb-4">
-                    <div class="malware-icon bg-green-500 text-white">
-                        <i class="fas fa-spider text-2xl"></i>
-                    </div>
-                    <h3 class="text-3xl font-bold text-green-600">Worms</h3> <!-- Increased from xl -->
-                </div>
-                <ul class="list-disc pl-6 space-y-2 text-3xl">
-                    <li>Self-propagating malware that spreads across networks</li>
-                    <li>Does not require host files to replicate</li>
-                    <li>Consumes bandwidth and system resources</li>
-                    <li class="analogy text-gray-600 italic text-2xl">Think of it like: A self-driving car that copies itself - moves independently through your network without needing anyone to carry it</li>
-                </ul>
-            </div>
-            
-            <!-- Trojan Card -->
-            <div class="bg-white p-7 rounded-lg shadow-md mb-6 border-l-4 border-yellow-500 hover:shadow-lg transition-shadow">
-                <div class="flex items-center mb-4">
-                    <div class="malware-icon bg-yellow-500 text-white">
-                        <i class="fas fa-horse-head text-2xl"></i>
-                    </div>
-                    <h3 class="text-3xl font-bold text-yellow-600">Trojans</h3>
-                </div>
-                <ul class="list-disc pl-6 space-y-2 text-3xl">
-                    <li>Disguised as legitimate software</li>
-                    <li>Creates backdoors for unauthorized access</li>
-                    <li>Often used to steal credentials or install other malware</li>
-                    <li class="analogy text-gray-600 italic text-2xl">Think of it like: A fake delivery package - looks like legitimate software (free game, PDF reader) but contains hidden malware</li>
-                </ul>
-            </div>
-            
-            <!-- Ransomware Card -->
-            <div class="bg-white p-7 rounded-lg shadow-md mb-6 border-l-4 border-purple-500 hover:shadow-lg transition-shadow">
-                <div class="flex items-center mb-4">
-                    <div class="malware-icon bg-purple-500 text-white">
-                        <i class="fas fa-lock text-2xl"></i>
-                    </div>
-                    <h3 class="text-3xl font-bold text-purple-600">Ransomware</h3>
-                </div>
-                <ul class="list-disc pl-6 space-y-2 text-3xl">
-                    <li>Encrypts user files and demands payment</li>
-                    <li>Major threat to businesses and individuals</li>
-                    <li>Can spread through email attachments or network vulnerabilities</li>
-                    <li class="analogy text-gray-600 italic text-2xl">Think of it like: A digital kidnapper - locks up your files and demands ransom money to give you the key</li>
-                </ul>
-            </div>
-            
-            <!-- Spyware Card -->
-            <div class="bg-white p-7 rounded-lg shadow-md mb-6 border-l-4 border-indigo-500 hover:shadow-lg transition-shadow">
-                <div class="flex items-center mb-4">
-                    <div class="malware-icon bg-indigo-500 text-white">
-                        <i class="fas fa-eye text-2xl"></i>
-                    </div>
-                    <h3 class="text-3xl font-bold text-indigo-600">Spyware</h3>
-                </div>
-                <ul class="list-disc pl-6 space-y-2 text-3xl">
-                    <li>Secretly monitors user activity</li>
-                    <li>Collects personal information, keystrokes, browsing habits</li>
-                    <li>Often bundled with legitimate software</li>
-                    <li class="analogy text-gray-600 italic text-2xl">Think of it like: A hidden camera in your office - secretly watches everything you do and reports back to criminals</li>
-                </ul>
-            </div>
-            
-            <!-- Rootkit Card -->
-            <div class="bg-white p-7 rounded-lg shadow-md mb-6 border-l-4 border-gray-500 hover:shadow-lg transition-shadow">
-                <div class="flex items-center mb-4">
-                    <div class="malware-icon bg-gray-500 text-white">
-                        <i class="fas fa-user-secret text-2xl"></i>
-                    </div>
-                    <h3 class="text-3xl font-bold text-gray-600">Rootkits</h3>
-                </div>
-                <ul class="list-disc pl-6 space-y-2 text-3xl">
-                    <li>Hide deep within operating system</li>
-                    <li>Difficult to detect and remove</li>
-                    <li>Provide persistent unauthorized access</li>
-                    <li class="analogy text-gray-600 italic text-2xl">Think of it like: A master key that also makes itself invisible - gives hackers admin access while hiding from security scans</li>
-                </ul>
-            </div>
-        </section>
+        <main class="content">
+            <section id="introduction" class="section">
+                <h2>Introduction</h2>
+                <p>Fifth-generation (5G) wireless technology represents a paradigm shift in telecommunications, transcending traditional mobile communications to become a foundational infrastructure for digital transformation. As of early 2025, 5G has reached a global inflection point with more than 2.25 billion connections worldwide, adoption accelerating at a rate four times faster than 4G during its corresponding growth phase.</p>
 
-        <!-- Common Attack Vectors -->
-        <section class="mb-10">
-            <h2 class="text-3xl font-semibold mb-6 text-blue-600"> <!-- Increased from 2xl -->
-                <i class="fas fa-bolt mr-2"></i> Common Attack Vectors
-            </h2>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <!-- Email attachments -->
-                <div class="bg-white p-5 rounded-lg shadow border border-gray-200 hover:shadow-md transition-shadow"> <!-- Increased padding -->
-                    <div class="flex items-center mb-2">
-                        <div class="w-10 h-10 bg-red-100 rounded-full flex items-center justify-center mr-3"> <!-- Increased size -->
-                            <i class="fas fa-envelope text-red-500 text-xl"></i> <!-- Increased icon size -->
-                        </div>
-                        <h3 class="font-semibold text-2xl">Email attachments</h3> <!-- Increased text size -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <span class="stat-number">2.25B</span>
+                        <span class="stat-label">Global 5G Connections</span>
                     </div>
-                    <p class="text-gray-600 mb-2 text-2xl">Malicious files disguised as documents</p> <!-- Increased text size -->
-                    <div class="bg-gray-50 p-3 rounded text-xl italic"> <!-- Increased padding and text size -->
-                        <i class="fas fa-example-circle text-gray-400 mr-1"></i> Example: "Invoice.pdf.exe" that looks like a PDF but is actually malware
+                    <div class="stat-card">
+                        <span class="stat-number">60%</span>
+                        <span class="stat-label">World Population with 5G Access</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">90%</span>
+                        <span class="stat-label">Projected US Adoption by 2030</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">4x</span>
+                        <span class="stat-label">Faster Adoption than 4G</span>
                     </div>
                 </div>
-                
-                <!-- Downloads -->
-                <div class="bg-white p-5 rounded-lg shadow border border-gray-200 hover:shadow-md transition-shadow">
-                    <div class="flex items-center mb-2">
-                        <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mr-3">
-                            <i class="fas fa-download text-blue-500 text-xl"></i>
-                        </div>
-                        <h3 class="font-semibold text-2xl">Downloads</h3>
-                    </div>
-                    <p class="text-gray-600 mb-2 text-2xl">Infected software from untrusted sources</p>
-                    <div class="bg-gray-50 p-3 rounded text-xl italic">
-                        <i class="fas fa-example-circle text-gray-400 mr-1"></i> Example: Free movie download site that bundles spyware with the video file
-                    </div>
-                </div>
-                
-                <!-- USB devices -->
-                <div class="bg-white p-5 rounded-lg shadow border border-gray-200 hover:shadow-md transition-shadow">
-                    <div class="flex items-center mb-2">
-                        <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center mr-3">
-                            <i class="fas fa-usb text-green-500 text-xl"></i>
-                        </div>
-                        <h3 class="font-semibold text-2xl">USB devices</h3>
-                    </div>
-                    <p class="text-gray-600 mb-2 text-2xl">Removable media carrying malware</p>
-                    <div class="bg-gray-50 p-3 rounded text-xl italic">
-                        <i class="fas fa-example-circle text-gray-400 mr-1"></i> Example: USB stick found in parking lot contains malware that runs when plugged in
-                    </div>
-                </div>
-                
-                <!-- Network exploits -->
-                <div class="bg-white p-5 rounded-lg shadow border border-gray-200 hover:shadow-md transition-shadow">
-                    <div class="flex items-center mb-2">
-                        <div class="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center mr-3">
-                            <i class="fas fa-network-wired text-purple-500 text-xl"></i>
-                        </div>
-                        <h3 class="font-semibold text-2xl">Network exploits</h3>
-                    </div>
-                    <p class="text-gray-600 mb-2 text-2xl">Taking advantage of system vulnerabilities</p>
-                    <div class="bg-gray-50 p-3 rounded text-xl italic">
-                        <i class="fas fa-example-circle text-gray-400 mr-1"></i> Example: Unpatched Windows systems infected by WannaCry ransomware in 2017
-                    </div>
-                </div>
-                
-                <!-- Social engineering -->
-                <div class="bg-white p-5 rounded-lg shadow border border-gray-200 hover:shadow-md transition-shadow md:col-span-2">
-                    <div class="flex items-center mb-2">
-                        <div class="w-10 h-10 bg-yellow-100 rounded-full flex items-center justify-center mr-3">
-                            <i class="fas fa-user-shield text-yellow-500 text-xl"></i>
-                        </div>
-                        <h3 class="font-semibold text-2xl">Social engineering</h3>
-                    </div>
-                    <p class="text-gray-600 mb-2 text-2xl">Tricking users into installing malware</p>
-                    <div class="bg-gray-50 p-3 rounded text-xl italic">
-                        <i class="fas fa-example-circle text-gray-400 mr-1"></i> Example: Fake tech support call claiming "your computer is infected, download our scanner"
-                    </div>
-                </div>
-            </div>
-        </section>
 
-        <!-- Comparison Table -->
-        <section class="mb-10">
-            <h2 class="text-3xl font-semibold mb-6 text-blue-600"> <!-- Increased from 2xl -->
-                <i class="fas fa-table mr-2"></i> Comparison of Malicious Programs
-            </h2>
-            
-            <div class="overflow-x-auto">
-                <table class="min-w-full bg-white rounded-lg overflow-hidden shadow">
-                    <thead class="bg-blue-500 text-white text-3xl"> <!-- Increased from 2xl -->
-                        <tr>
-                            <th class="py-4 px-5 text-left">Type</th> <!-- Increased padding -->
-                            <th class="py-4 px-5 text-left">Host Required</th>
-                            <th class="py-4 px-5 text-left">Spreads How</th>
-                            <th class="py-4 px-5 text-left">Primary Goal</th>
-                            <th class="py-4 px-5 text-left">Detection Difficulty</th>
-                            <th class="py-4 px-5 text-left">Impact Level</th>
-                        </tr>
-                    </thead>
-                    <tbody class="divide-y divide-gray-200 text-2xl"> <!-- Increased from xl -->
-                        <!-- Virus -->
-                        <tr class="hover:bg-blue-50 transition-colors">
-                            <td class="py-4 px-5 font-semibold text-red-500"><i class="fas fa-virus mr-2"></i> Virus</td>
-                            <td class="py-4 px-5">Yes (needs files)</td>
-                            <td class="py-4 px-5">File sharing/execution</td>
-                            <td class="py-4 px-5">Damage/corruption</td>
-                            <td class="py-4 px-5">
-                                <span class="px-3 py-2 bg-yellow-100 text-yellow-800 rounded-full text-xl">Medium</span> <!-- Increased padding and text size -->
-                            </td>
-                            <td class="py-4 px-5">
-                                <span class="px-3 py-2 bg-orange-100 text-orange-800 rounded-full text-xl">Medium-High</span>
-                            </td>
-                        </tr>
-                        
-                        <!-- Worm -->
-                        <tr class="hover:bg-blue-50 transition-colors">
-                            <td class="py-4 px-5 font-semibold text-green-500"><i class="fas fa-spider mr-2"></i> Worm</td>
-                            <td class="py-4 px-5">No (independent)</td>
-                            <td class="py-4 px-5">Network automatically</td>
-                            <td class="py-4 px-5">Network disruption</td>
-                            <td class="py-4 px-5">
-                                <span class="px-3 py-2 bg-blue-100 text-blue-800 rounded-full text-xl">Easy-Medium</span>
-                            </td>
-                            <td class="py-4 px-5">
-                                <span class="px-3 py-2 bg-red-100 text-red-800 rounded-full text-xl">High</span>
-                            </td>
-                        </tr>
-                        
-                        <!-- Trojan -->
-                        <tr class="hover:bg-blue-50 transition-colors">
-                            <td class="py-4 px-5 font-semibold text-yellow-500"><i class="fas fa-horse-head mr-2"></i> Trojan</td>
-                            <td class="py-4 px-5">No (standalone)</td>
-                            <td class="py-4 px-5">User installation</td>
-                            <td class="py-4 px-5">Backdoor access</td>
-                            <td class="py-4 px-5">
-                                <span class="px-3 py-2 bg-yellow-100 text-yellow-800 rounded-full text-xl">Medium</span>
-                            </td>
-                            <td class="py-4 px-5">
-                                <span class="px-3 py-2 bg-red-100 text-red-800 rounded-full text-xl">High</span>
-                            </td>
-                        </tr>
-                        
-                        <!-- Ransomware -->
-                        <tr class="hover:bg-blue-50 transition-colors">
-                            <td class="py-4 px-5 font-semibold text-purple-500"><i class="fas fa-lock mr-2"></i> Ransomware</td>
-                            <td class="py-4 px-5">No (standalone)</td>
-                            <td class="py-4 px-5">Email/network</td>
-                            <td class="py-4 px-5">Financial extortion</td>
-                            <td class="py-4 px-5">
-                                <span class="px-3 py-2 bg-yellow-100 text-yellow-800 rounded-full text-xl">Medium</span>
-                            </td>
-                            <td class="py-4 px-5">
-                                <span class="px-3 py-2 bg-red-100 text-red-800 rounded-full text-xl">Very High</span>
-                            </td>
-                        </tr>
-                        
-                        <!-- Spyware -->
-                        <tr class="hover:bg-blue-50 transition-colors">
-                            <td class="py-4 px-5 font-semibold text-indigo-500"><i class="fas fa-eye mr-2"></i> Spyware</td>
-                            <td class="py-4 px-5">No (standalone)</td>
-                            <td class="py-4 px-5">Bundled software</td>
-                            <td class="py-4 px-5">Data theft</td>
-                            <td class="py-4 px-5">
-                                <span class="px-3 py-2 bg-red-100 text-red-800 rounded-full text-xl">Hard</span>
-                            </td>
-                            <td class="py-4 px-5">
-                                <span class="px-3 py-2 bg-yellow-100 text-yellow-800 rounded-full text-xl">Medium</span>
-                            </td>
-                        </tr>
-                        
-                        <!-- Rootkit -->
-                        <tr class="hover:bg-blue-50 transition-colors">
-                            <td class="py-4 px-5 font-semibold text-gray-500"><i class="fas fa-user-secret mr-2"></i> Rootkit</td>
-                            <td class="py-4 px-5">No (system level)</td>
-                            <td class="py-4 px-5">Other malware</td>
-                            <td class="py-4 px-5">Persistent access</td>
-                            <td class="py-4 px-5">
-                                <span class="px-3 py-2 bg-red-100 text-red-800 rounded-full text-xl">Very Hard</span>
-                            </td>
-                            <td class="py-4 px-5">
-                                <span class="px-3 py-2 bg-red-100 text-red-800 rounded-full text-xl">Very High</span>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
+                <p>Unlike previous generations that primarily enhanced mobile broadband, 5G enables convergence of physical and digital worlds through ultra-reliable, low-latency connectivity supporting massive device ecosystems.</p>
+            </section>
 
-        <!-- Key Differences Summary -->
-        <section>
-            <h2 class="text-3xl font-semibold mb-6 text-blue-600"> <!-- Increased from 2xl -->
-                <i class="fas fa-key mr-2"></i> Key Differences Summary
-            </h2>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <!-- Speed of Spread -->
-                <div class="bg-white p-5 rounded-lg shadow border border-gray-200"> <!-- Increased padding -->
-                    <div class="flex items-center mb-3">
-                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-3"> <!-- Increased size -->
-                            <i class="fas fa-tachometer-alt text-blue-500 text-xl"></i> <!-- Increased icon size -->
-                        </div>
-                        <h3 class="text-2xl font-semibold">Speed of Spread</h3> <!-- Increased from lg -->
+            <section id="features" class="section">
+                <h2>Key Features of 5G</h2>
+
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <h4>🚀 Ultra-High Speed</h4>
+                        <p><strong>U.S. 5G Standalone:</strong> 388.44 Mbps median download speeds in Q4 2024</p>
+                        <p><strong>Global Leader:</strong> South Korea averaging 435 Mbps</p>
+                        <p>Outperforming Japan (254.18 Mbps) and China (224.82 Mbps)</p>
                     </div>
-                    <ul class="space-y-2 text-2xl"> <!-- Increased from xl -->
-                        <li class="flex items-start">
-                            <span class="bg-blue-500 text-white rounded-full w-7 h-7 flex items-center justify-center mr-2 mt-0.5 flex-shrink-0"> <!-- Increased size -->
-                                <i class="fas fa-bolt text-sm"></i> <!-- Increased icon size -->
-                            </span>
-                            <span><strong>Fastest:</strong> Worms (automatic network spread)</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="bg-gray-500 text-white rounded-full w-7 h-7 flex items-center justify-center mr-2 mt-0.5 flex-shrink-0">
-                                <i class="fas fa-turtle text-sm"></i>
-                            </span>
-                            <span><strong>Slowest:</strong> Viruses (requires human action)</span>
-                        </li>
+
+                    <div class="feature-card">
+                        <h4>⚡ Ultra-Low Latency</h4>
+                        <p><strong>1 millisecond latency</strong> enabling real-time applications requiring instantaneous response times</p>
+                        <p>Critical for autonomous vehicles, remote surgery, and industrial automation</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <h4>🌐 Massive Connectivity</h4>
+                        <p><strong>1 million devices per km²</strong> supporting exponential IoT growth</p>
+                        <p>Accommodates smart cities, industrial IoT, and massive sensor networks</p>
+                    </div>
+                </div>
+
+                <h3>Network Slicing</h3>
+                <p>Network slicing enables communication service providers to manage diverse needs of enhanced Mobile Broadband (eMBB), Ultra-Reliable Low-Latency Communications (URLLC), and massive Machine-Type Communications (mMTC) applications.</p>
+
+                <div class="stat-card" style="margin: 1rem 0; max-width: 400px;">
+                    <span class="stat-number">$5.07B</span>
+                    <span class="stat-label">Network Slicing Market by 2030 (43.3% CAGR)</span>
+                </div>
+
+                <h3>Edge Computing Integration</h3>
+                <p>Multi-Access Edge Computing (MEC) optimizes 5G network resources by bringing computation closer to data sources, enabling real-time data processing, reduced bandwidth consumption, enhanced privacy and security, and support for latency-critical applications.</p>
+            </section>
+
+            <section id="applications" class="section">
+                <h2>Applications Across Industries</h2>
+
+                <div class="applications-grid">
+                    <div class="application-card">
+                        <div class="application-header">🏙️ Smart Cities</div>
+                        <div class="application-content">
+                            <ul>
+                                <li><strong>Intelligent Transportation:</strong> Smart traffic management reducing congestion</li>
+                                <li><strong>Public Safety:</strong> Real-time monitoring and predictive policing</li>
+                                <li><strong>Environmental Monitoring:</strong> IoT sensors for air quality and waste management</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="application-card">
+                        <div class="application-header">🏥 Healthcare</div>
+                        <div class="application-content">
+                            <ul>
+                                <li><strong>Remote Surgery:</strong> Ultra-low latency precision procedures</li>
+                                <li><strong>Real-time Monitoring:</strong> Continuous patient vital tracking</li>
+                                <li><strong>Emergency Response:</strong> Instant critical care communication</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="application-card">
+                        <div class="application-header">🚗 Autonomous Vehicles</div>
+                        <div class="application-content">
+                            <ul>
+                                <li><strong>V2X Communication:</strong> Vehicle-to-Everything connectivity</li>
+                                <li><strong>Safety Enhancement:</strong> Real-time hazard detection</li>
+                                <li><strong>Traffic Optimization:</strong> Coordinated autonomous networks</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="application-card">
+                        <div class="application-header">🏭 Industrial IoT</div>
+                        <div class="application-content">
+                            <ul>
+                                <li><strong>Smart Factory Automation:</strong> Interconnected production systems</li>
+                                <li><strong>Predictive Maintenance:</strong> Real-time equipment monitoring</li>
+                                <li><strong>Quality Control:</strong> Automated inspection systems</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="challenges" class="section">
+                <h2>Current Challenges</h2>
+
+                <div class="challenge-item">
+                    <h4>💰 Infrastructure Investment and Costs</h4>
+                    <p><strong>Global 5G spending:</strong> $1.1 trillion by 2025</p>
+                    <p><strong>Base station costs:</strong> $100,000 - $200,000 per site</p>
+                    <p><strong>Capital expenditures:</strong> 60% increase from 2020-2025</p>
+                </div>
+
+                <div class="challenge-item">
+                    <h4>🔐 Security and Cybersecurity Risks</h4>
+                    <p>5G-Advanced supports massive IoT and critical infrastructure, significantly expanding attack surfaces. Improperly deployed networks may be vulnerable to disruption and manipulation.</p>
+                    <ul>
+                        <li>Expanded attack surfaces from increased device connectivity</li>
+                        <li>Supply chain security challenges</li>
+                        <li>Need for end-to-end encryption and authentication</li>
                     </ul>
                 </div>
-                
-                <!-- Stealth Level -->
-                <div class="bg-white p-5 rounded-lg shadow border border-gray-200">
-                    <div class="flex items-center mb-3">
-                        <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mr-3">
-                            <i class="fas fa-user-ninja text-purple-500 text-xl"></i>
-                        </div>
-                        <h3 class="text-2xl font-semibold">Stealth Level</h3>
-                    </div>
-                    <ul class="space-y-2 text-2xl">
-                        <li class="flex items-start">
-                            <span class="bg-purple-500 text-white rounded-full w-7 h-7 flex items-center justify-center mr-2 mt-0.5 flex-shrink-0">
-                                <i class="fas fa-eye-slash text-sm"></i>
-                            </span>
-                            <span><strong>Most Hidden:</strong> Rootkits, Spyware</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="bg-red-500 text-white rounded-full w-7 h-7 flex items-center justify-center mr-2 mt-0.5 flex-shrink-0">
-                                <i class="fas fa-bullhorn text-sm"></i>
-                            </span>
-                            <span><strong>Most Obvious:</strong> Ransomware (announces itself)</span>
-                        </li>
-                    </ul>
-                </div>
-                
-                <!-- Damage Type -->
-                <div class="bg-white p-5 rounded-lg shadow border border-gray-200">
-                    <div class="flex items-center mb-3">
-                        <div class="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mr-3">
-                            <i class="fas fa-bomb text-red-500 text-xl"></i>
-                        </div>
-                        <h3 class="text-2xl font-semibold">Damage Type</h3>
-                    </div>
-                    <ul class="space-y-2 text-2xl">
-                        <li class="flex items-start">
-                            <span class="bg-green-500 text-white rounded-full w-7 h-7 flex items-center justify-center mr-2 mt-0.5 flex-shrink-0">
-                                <i class="fas fa-money-bill-wave text-sm"></i>
-                            </span>
-                            <span><strong>Immediate Financial:</strong> Ransomware</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="bg-indigo-500 text-white rounded-full w-7 h-7 flex items-center justify-center mr-2 mt-0.5 flex-shrink-0">
-                                <i class="fas fa-user-secret text-sm"></i>
-                            </span>
-                            <span><strong>Long-term Privacy:</strong> Spyware</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="bg-orange-500 text-white rounded-full w-7 h-7 flex items-center justify-center mr-2 mt-0.5 flex-shrink-0">
-                                <i class="fas fa-skull-crossbones text-sm"></i>
-                            </span>
-                            <span><strong>System Destruction:</strong> Viruses, Worms</span>
-                        </li>
-                    </ul>
-                </div>
-                
-                <!-- User Involvement -->
-                <div class="bg-white p-5 rounded-lg shadow border border-gray-200">
-                    <div class="flex items-center mb-3">
-                        <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-3">
-                            <i class="fas fa-users text-green-500 text-xl"></i>
-                        </div>
-                        <h3 class="text-2xl font-semibold">User Involvement</h3>
-                    </div>
-                    <ul class="space-y-2 text-2xl">
-                        <li class="flex items-start">
-                            <span class="bg-yellow-500 text-white rounded-full w-7 h-7 flex items-center justify-center mr-2 mt-0.5 flex-shrink-0">
-                                <i class="fas fa-hand-pointer text-sm"></i>
-                            </span>
-                            <span><strong>Requires User Action:</strong> Viruses, Trojans</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="bg-gray-500 text-white rounded-full w-7 h-7 flex items-center justify-center mr-2 mt-0.5 flex-shrink-0">
-                                <i class="fas fa-robot text-sm"></i>
-                            </span>
-                            <span><strong>No User Action Needed:</strong> Worms, Rootkits</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </section>
 
-        <!-- Footer -->
-        <footer class="mt-12 pt-6 border-t border-gray-200 text-center text-gray-500 text-2xl"> <!-- Increased from xl -->
-            <p>© 2025 Security Education Report. All rights reserved.</p>
-            <p class="mt-2">For educational purposes only.</p>
-        </footer>
+                <div class="challenge-item">
+                    <h4>📡 Spectrum Allocation and Management</h4>
+                    <p>The United States faces challenges managing spectrum for federal and non-federal uses, resulting in relatively slow approval of new spectrum bands for commercial 5G development.</p>
+                </div>
+
+                <div class="challenge-item">
+                    <h4>🌱 Energy Efficiency and Environmental Impact</h4>
+                    <p>Network densification requirements and increased computational demands pose sustainability challenges, requiring innovations in energy-efficient technologies and green network architectures.</p>
+                </div>
+            </section>
+
+            <section id="future" class="section">
+                <h2>Future Networks: Beyond 5G and 6G Vision</h2>
+
+                <div class="future-vision">
+                    <h3>6G Technology Roadmap</h3>
+                    <p>6G will build on 5G, evolving towards the needs of 2030 and beyond, with first commercial releases expected in 2030. 6G will offer data rates reaching terabits per second (Tbps), microsecond-level latency, and ultra-high network reliability.</p>
+
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-year">2025</div>
+                            <div>5G Maturation</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-year">2028</div>
+                            <div>6G Standards</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-year">2030</div>
+                            <div>6G Commercial Launch</div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Key 6G Innovations</h3>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <h4>🔬 Advanced Frequency Spectrum</h4>
+                        <p>6G will expand into higher frequencies, potentially up to <strong>10 THz</strong>, with applications above 100 GHz as part of THz communications.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <h4>🤖 AI-Native Architecture</h4>
+                        <p>Quantum computing and quantum machine learning as core 6G enablers, with ML/AI systems supporting intelligent automated network management.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <h4>🛰️ Integrated Sensing and Communication</h4>
+                        <p>Synchronized distributed massive MIMO, extreme MIMO, non-terrestrial networks, and integrated communication and sensing.</p>
+                    </div>
+                </div>
+
+                <h3>Revolutionary Applications</h3>
+                <p>6G will enable wide-area mixed reality, massive twinning, autonomous mobility, and simultaneous location and mapping services. The Internet of senses will allow digital sensory experiences similar to physical world experiences.</p>
+
+                <div class="application-card" style="margin: 1rem 0;">
+                    <div class="application-header">🌐 Cyber-Physical Integration</div>
+                    <div class="application-content">
+                        <p>Future 6G networks will bridge physical things, people and activities into a fully cyber-physical world where digital and physical worlds merge.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="global-competition" class="section">
+                <h2>Global Competition and Standardization</h2>
+                <p>In February 2024, the U.S., Australia, Canada, Czech Republic, Finland, France, Japan, South Korea, Sweden and U.K. released a joint statement supporting shared principles for 6G for "open, free, global, interoperable, reliable, resilient, and secure connectivity".</p>
+                
+                <p><strong>Standards Development:</strong> Standardization bodies such as 3GPP and ETSI, along with industry groups like the Next Generation Mobile Networks (NGMN) Alliance, are expected to play key roles in 6G development.</p>
+            </section>
+
+            <div class="conclusion">
+                <h2>Conclusion</h2>
+                <p>5G technology has matured from experimental phase to foundational digital infrastructure, enabling transformative applications across industries while facing significant deployment and security challenges. 5G serves as a foundational platform—increasingly essential to the functioning of digital economies and modern society.</p>
+
+                <div class="key-points">
+                    <div class="key-point">
+                        <h4>Current State</h4>
+                        <p>With global deployment accelerating and 2110 grants and 76,247 patents highlighting continuous technological advancement, 5G is transitioning from connectivity infrastructure to application enablement platform.</p>
+                    </div>
+
+                    <div class="key-point">
+                        <h4>Future Vision</h4>
+                        <p>By 2030, 5G will have shaped industry and society for 10 years, with first 6G networks deployed and envisioned use cases becoming reality. The evolution toward 6G promises convergence of physical and digital realms.</p>
+                    </div>
+
+                    <div class="key-point">
+                        <h4>Strategic Imperatives</h4>
+                        <p>Success in next-generation networks requires coordinated investment in infrastructure, spectrum allocation, cybersecurity frameworks, and international standardization efforts.</p>
+                    </div>
+                </div>
+
+                <p style="text-align: center; margin-top: 2rem; font-size: 1.1rem; font-weight: bold;">The trajectory from 5G to 6G represents fundamental transformation in how societies interact with digital infrastructure, positioning networks as platforms for innovation, economic growth, and global competitiveness in the digital age.</p>
+            </div>
+        </main>
     </div>
 
-    <!-- Dark mode toggle script -->
+    <button class="scroll-to-top" onclick="scrollToTop()">↑</button>
+
     <script>
-        const darkModeToggle = document.getElementById('darkModeToggle');
-        const body = document.body;
-        
-        // Check for saved user preference
-        if (localStorage.getItem('darkMode') === 'enabled') {
-            body.classList.add('dark-mode');
-            darkModeToggle.innerHTML = '<i class="fas fa-sun text-yellow-400"></i>';
-        }
-        
-        darkModeToggle.addEventListener('click', () => {
-            body.classList.toggle('dark-mode');
-            
-            if (body.classList.contains('dark-mode')) {
-                localStorage.setItem('darkMode', 'enabled');
-                darkModeToggle.innerHTML = '<i class="fas fa-sun text-yellow-400"></i>';
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Show/hide scroll to top button
+        window.addEventListener('scroll', function() {
+            const scrollBtn = document.querySelector('.scroll-to-top');
+            if (window.pageYOffset > 300) {
+                scrollBtn.classList.add('visible');
             } else {
-                localStorage.setItem('darkMode', 'disabled');
-                darkModeToggle.innerHTML = '<i class="fas fa-moon text-gray-700"></i>';
+                scrollBtn.classList.remove('visible');
             }
+        });
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Add animation on scroll for stat cards
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.stat-card, .feature-card, .application-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
         });
     </script>
 </body>
